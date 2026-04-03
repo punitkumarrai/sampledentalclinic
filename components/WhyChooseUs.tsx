@@ -1,39 +1,19 @@
 import { UserCheck, Heart, Droplets, ClipboardList, Monitor, Users } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
+import type { ReactElement } from "react";
 
-const reasons = [
-  {
-    icon: <UserCheck className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Experienced Professionals",
-    description: "Our dentists bring years of clinical expertise and continued education in modern techniques.",
-  },
-  {
-    icon: <Heart className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Comfort-Focused Care",
-    description: "We prioritize your comfort at every step — from the waiting room to the chair.",
-  },
-  {
-    icon: <Droplets className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Hygiene-First Environment",
-    description: "International-grade sterilization protocols and a spotlessly clean clinic, every time.",
-  },
-  {
-    icon: <ClipboardList className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Clear Treatment Guidance",
-    description: "No jargon, no pressure. We explain every option so you can decide with confidence.",
-  },
-  {
-    icon: <Monitor className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Modern Technology",
-    description: "Digital X-rays, advanced tools, and the latest techniques for faster, better results.",
-  },
-  {
-    icon: <Users className="w-6 h-6 text-teal" strokeWidth={1.5} />,
-    title: "Family-Friendly",
-    description: "From toddlers to grandparents, our clinic is designed to welcome every age group.",
-  },
-];
+const iconMap: Record<string, ReactElement> = {
+  UserCheck: <UserCheck className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+  Heart: <Heart className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+  Droplets: <Droplets className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+  ClipboardList: <ClipboardList className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+  Monitor: <Monitor className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+  Users: <Users className="w-6 h-6 text-teal" strokeWidth={1.5} />,
+};
 
 export default function WhyChooseUs() {
+  const { whyChooseUs } = siteConfig;
+
   return (
     <section className="py-16 md:py-20 bg-offwhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,8 +21,8 @@ export default function WhyChooseUs() {
           {/* Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
             <img
-              src="/images/consultation.jpg"
-              alt="Dentist explaining treatment plan to a comfortable patient in a modern clinic"
+              src={whyChooseUs.image}
+              alt={whyChooseUs.imageAlt}
               className="w-full h-full object-cover"
             />
           </div>
@@ -50,17 +30,17 @@ export default function WhyChooseUs() {
           {/* Content */}
           <div>
             <p className="text-teal font-semibold text-sm tracking-wider uppercase mb-2">
-              Why Us
+              {whyChooseUs.sectionTagline}
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-6">
-              Why Families Choose Us
+              {whyChooseUs.sectionHeading}
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              {reasons.map((reason) => (
+              {whyChooseUs.reasons.map((reason) => (
                 <div key={reason.title} className="flex gap-3">
                   <div className="flex-shrink-0 mt-0.5">
-                    {reason.icon}
+                    {iconMap[reason.iconName] ?? <Heart className="w-6 h-6 text-teal" strokeWidth={1.5} />}
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-navy mb-1">

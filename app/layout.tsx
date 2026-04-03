@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { siteConfig } from "@/lib/site-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,18 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sample Dental Clinic — Premium Dental Care in Greater Noida",
-  description:
-    "Trusted dental clinic near Alpha 2 Main Market, Greater Noida. Gentle, modern care for the whole family — teeth cleaning, braces, implants, root canal & more. Book your appointment today.",
-  keywords: [
-    "dentist greater noida",
-    "dental clinic alpha 2",
-    "teeth cleaning",
-    "braces orthodontics",
-    "dental implants greater noida",
-    "root canal treatment",
-    "kids dentistry",
-  ],
+  title: siteConfig.metadata.home.title,
+  description: siteConfig.metadata.home.description,
+  keywords: siteConfig.metadata.home.keywords,
 };
 
 export default function RootLayout({

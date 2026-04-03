@@ -1,25 +1,5 @@
 import { Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Priya Sharma",
-    text: "I was always scared of the dentist, but Dr. Mehta and the team made me feel completely at ease. My root canal was completely painless. Highly recommend!",
-    treatment: "Root Canal",
-    stars: 5,
-  },
-  {
-    name: "Rahul Verma",
-    text: "Brought my 6-year-old daughter for her first checkup. The staff was so gentle and patient with her. She actually left smiling and wants to come back!",
-    treatment: "Kids Dentistry",
-    stars: 5,
-  },
-  {
-    name: "Anjali Desai",
-    text: "Got invisible aligners here. The whole process was explained so clearly, and the pricing was transparent. The clinic is spotless and feels very premium.",
-    treatment: "Aligners",
-    stars: 5,
-  },
-];
+import { siteConfig } from "@/lib/site-config";
 
 export default function Testimonials() {
   return (
@@ -35,7 +15,7 @@ export default function Testimonials() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
+          {siteConfig.testimonials.map((t, idx) => (
             <div
               key={idx}
               className="bg-offwhite rounded-2xl p-8 border border-border/50 card-hover flex flex-col h-full"

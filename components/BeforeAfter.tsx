@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { siteConfig } from "@/lib/site-config";
 
 export default function BeforeAfter() {
   const [sliderPosition, setSliderPosition] = useState(50);
+  const { beforeAfter } = siteConfig;
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -17,13 +19,13 @@ export default function BeforeAfter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-teal font-semibold text-sm tracking-wider uppercase mb-2">
-            Real Results
+            {beforeAfter.sectionTagline}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-            Before & After
+            {beforeAfter.sectionHeading}
           </h2>
           <p className="text-muted mt-4 max-w-2xl mx-auto">
-            See the transformative power of modern, expert dental care.
+            {beforeAfter.sectionDescription}
           </p>
         </div>
 
@@ -36,7 +38,7 @@ export default function BeforeAfter() {
             {/* After Image (Background) */}
             <div className="absolute inset-0">
               <img
-                src="/images/after.jpg"
+                src={beforeAfter.afterImage}
                 alt="After treatment: healthy, aligned teeth"
                 className="w-full h-full object-cover"
                 draggable="false"
@@ -52,14 +54,14 @@ export default function BeforeAfter() {
               style={{ width: `${sliderPosition}%` }}
             >
               <img
-                src="/images/before.jpg"
+                src={beforeAfter.beforeImage}
                 alt="Before treatment"
-                className="w-full h-full object-cover absolute top-0 left-0 max-w-none w-[100vw] sm:w-[896px]" // 896px represents max-w-4xl roughly, to ensure image doesn't squish. Better approach is to use object-cover carefully. Let's adjust to ensure proper cropping.
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }} // Wait, object-cover within a clipped div will squeeze the image if not handled right. Using standard image with width 100% of PARENT.
+                className="w-full h-full object-cover absolute top-0 left-0 max-w-none w-[100vw] sm:w-[896px]"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
               />
               <div
                 className="absolute inset-0 bg-no-repeat bg-left bg-cover pointer-events-none"
-                style={{ backgroundImage: `url('/images/before.jpg')` }}
+                style={{ backgroundImage: `url('${beforeAfter.beforeImage}')` }}
               ></div>
               
               <div className="absolute bottom-4 left-4 bg-charcoal/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-md pointer-events-none">
@@ -81,7 +83,7 @@ export default function BeforeAfter() {
             </div>
           </div>
           <p className="text-center text-sm text-muted mt-6">
-            Drag the slider to compare before and after. Case: Complete Smile Makeover.
+            {beforeAfter.caption}
           </p>
         </div>
       </div>

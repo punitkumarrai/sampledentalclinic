@@ -1,33 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const faqs = [
-  {
-    question: "Do I need an appointment before visiting?",
-    answer: "While we do accept walk-ins for dental emergencies, we highly recommend booking an appointment to ensure you don't have to wait and our doctors can dedicate ample time to your consultation.",
-  },
-  {
-    question: "Is root canal treatment painful?",
-    answer: "Not at all. With modern anesthetics and advanced techniques, a root canal feels no different than getting a standard filling. Our priority is your absolute comfort throughout the procedure.",
-  },
-  {
-    question: "Do you treat kids?",
-    answer: "Yes! We specialize in pediatric dentistry and strive to make every child's visit fun, gentle, and completely fear-free.",
-  },
-  {
-    question: "Do you offer aligners and braces?",
-    answer: "Absolutely. We offer traditional metal and ceramic braces as well as clear, invisible aligners for both teens and adults looking to perfect their smile.",
-  },
-  {
-    question: "How often should I get teeth cleaning?",
-    answer: "For most people, a professional cleaning and check-up every 6 months is ideal to prevent plaque buildup, cavities, and gum disease.",
-  },
-  {
-    question: "How can I book an appointment?",
-    answer: "You can book an appointment easily by clicking the 'Book Appointment' button on our website, calling us directly, or sending a quick message on WhatsApp.",
-  },
-];
+import { siteConfig } from "@/lib/site-config";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -49,7 +23,7 @@ export default function FAQ() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {siteConfig.faqs.map((faq, index) => (
             <div
               key={index}
               className={`bg-white rounded-xl border transition-colors duration-300 ${
