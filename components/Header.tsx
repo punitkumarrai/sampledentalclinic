@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/lib/site-config";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -39,7 +40,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <span className="text-teal text-2xl font-bold">⊕</span>
           <span className="text-lg font-bold text-navy tracking-tight group-hover:text-teal transition-colors">
-            Sample Dental Clinic
+            {siteConfig.business.name}
           </span>
         </Link>
 

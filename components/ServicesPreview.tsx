@@ -1,43 +1,17 @@
 import Link from "next/link";
 import { Sparkles, Activity, Smile, Settings, Gem, HeartPulse, Baby } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
+import type { ReactElement } from "react";
 
-const services = [
-  {
-    icon: <Sparkles className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Teeth Cleaning",
-    description: "Professional cleaning to remove plaque and keep your smile bright and healthy.",
-  },
-  {
-    icon: <Activity className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Root Canal",
-    description: "Gentle, pain-free root canal treatment to save your natural tooth.",
-  },
-  {
-    icon: <Smile className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Braces & Orthodontics",
-    description: "Straighter teeth for a confident smile — for teens and adults alike.",
-  },
-  {
-    icon: <Settings className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Dental Implants",
-    description: "Permanent, natural-looking replacements for missing teeth.",
-  },
-  {
-    icon: <Gem className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Aligners",
-    description: "Clear, invisible aligners for a discreet path to perfectly aligned teeth.",
-  },
-  {
-    icon: <HeartPulse className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Gum Care",
-    description: "Healthy gums are the foundation of healthy teeth. We help you maintain both.",
-  },
-  {
-    icon: <Baby className="w-8 h-8 text-teal" strokeWidth={1.5} />,
-    title: "Kids Dentistry",
-    description: "Fun, gentle dental care designed to make kids feel comfortable and safe.",
-  },
-];
+const iconMap: Record<string, ReactElement> = {
+  Sparkles: <Sparkles className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  Activity: <Activity className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  Smile: <Smile className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  Settings: <Settings className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  Gem: <Gem className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  HeartPulse: <HeartPulse className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+  Baby: <Baby className="w-8 h-8 text-teal" strokeWidth={1.5} />,
+};
 
 export default function ServicesPreview() {
   return (
@@ -57,12 +31,12 @@ export default function ServicesPreview() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {services.map((service) => (
+          {siteConfig.servicesPreview.map((service) => (
             <div
               key={service.title}
               className="bg-offwhite rounded-xl p-6 card-hover border border-border/50"
             >
-              <div className="mb-5">{service.icon}</div>
+              <div className="mb-5">{iconMap[service.iconName] ?? <Sparkles className="w-8 h-8 text-teal" strokeWidth={1.5} />}</div>
               <h3 className="text-base font-bold text-navy mb-2">
                 {service.title}
               </h3>

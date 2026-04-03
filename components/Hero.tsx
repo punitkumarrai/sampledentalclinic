@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
 
 export default function Hero() {
+  const { hero, business } = siteConfig;
+
   return (
     <section className="relative bg-gradient-to-br from-offwhite via-white to-offwhite pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
       {/* Wire motif background */}
@@ -26,16 +29,14 @@ export default function Hero() {
           {/* Content */}
           <div className="animate-fade-up">
             <p className="text-teal font-semibold text-sm tracking-wider uppercase mb-3">
-              Trusted Dental Care in Greater Noida
+              {hero.tagline}
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-navy leading-[1.12] mb-4">
-              Your Smile Deserves{" "}
-              <span className="text-teal">Gentle,&nbsp;Expert</span> Care
+              {hero.heading}
+              <span className="text-teal">{hero.headingAccent}</span>{hero.headingSuffix}
             </h1>
             <p className="text-lg text-muted leading-relaxed mb-8 max-w-lg">
-              At Sample Dental Clinic, we combine modern technology with a
-              warm, family-friendly approach. From routine cleanings to advanced
-              treatments — your comfort always comes first.
+              {hero.description}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -45,7 +46,7 @@ export default function Hero() {
                 Book Appointment
               </Link>
               <a
-                href="tel:+918851169748"
+                href={`tel:${business.phone}`}
                 className="border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-lg hover:bg-navy hover:text-white transition-colors"
               >
                 Call Now
@@ -57,8 +58,8 @@ export default function Hero() {
           <div className="animate-fade-up delay-200 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <img
-                src="/images/hero-dentist.jpg"
-                alt="Friendly dentist consulting with a patient in a modern, clean clinic setting"
+                src={hero.heroImage}
+                alt={hero.heroImageAlt}
                 className="w-full h-full object-cover"
               />
               {/* Soft overlay */}
@@ -68,8 +69,8 @@ export default function Hero() {
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg px-5 py-3 flex items-center gap-3">
               <span className="text-teal text-2xl">★</span>
               <div>
-                <p className="text-sm font-bold text-navy">4.9 Rating</p>
-                <p className="text-xs text-muted">200+ Happy Families</p>
+                <p className="text-sm font-bold text-navy">{hero.trustBadge.rating}</p>
+                <p className="text-xs text-muted">{hero.trustBadge.subtitle}</p>
               </div>
             </div>
           </div>

@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import { Phone, MessageCircle, CheckCircle, Lock } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export default function BookNowPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const { business, bookPage } = siteConfig;
+  const whatsappUrl = `https://wa.me/${business.whatsappNumber}`;
+  const sidebarHeadingParts = bookPage.sidebarHeading.split("\n");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,26 +56,31 @@ export default function BookNowPage() {
           <div className="bg-navy p-10 md:p-14 text-white md:w-2/5 flex flex-col justify-between">
             <div>
               <p className="text-teal-light font-semibold text-sm tracking-wider uppercase mb-3">
-                Book Appointment
+                {bookPage.sidebarTagline}
               </p>
               <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                Prioritizing Your<br />Time & Comfort
+                {sidebarHeadingParts.map((part, i) => (
+                  <span key={i}>
+                    {part}
+                    {i < sidebarHeadingParts.length - 1 && <br />}
+                  </span>
+                ))}
               </h1>
               <p className="text-white/80 leading-relaxed text-sm mb-10">
-                Requesting an appointment is completely stress-free. We will swiftly review your preferences and personally call you to firmly confirm your slot.
+                {bookPage.sidebarDescription}
               </p>
             </div>
 
             <div className="space-y-6 border-t border-white/20 pt-8">
               <div className="flex items-center gap-4 text-sm font-medium">
                 <Phone className="w-5 h-5 shrink-0" strokeWidth={1.5} />
-                <a href="tel:+918851169748" className="hover:text-teal-light transition-colors">
-                  +91 88511 69748
+                <a href={`tel:${business.phone}`} className="hover:text-teal-light transition-colors">
+                  {business.phoneDisplay}
                 </a>
               </div>
               <div className="flex items-center gap-4 text-sm font-medium">
                 <MessageCircle className="w-5 h-5 shrink-0" strokeWidth={1.5} />
-                <a href="https://wa.me/918851169748" target="_blank" rel="noopener noreferrer" className="hover:text-teal-light transition-colors">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-teal-light transition-colors">
                   Message on WhatsApp
                 </a>
               </div>
@@ -84,9 +94,9 @@ export default function BookNowPage() {
                 <div className="w-16 h-16 bg-teal/10 text-teal rounded-full flex items-center justify-center mb-6">
                   <CheckCircle className="w-8 h-8" strokeWidth={2} />
                 </div>
-                <h2 className="text-2xl font-bold text-navy mb-4">Request Received!</h2>
+                <h2 className="text-2xl font-bold text-navy mb-4">{bookPage.confirmationHeading}</h2>
                 <p className="text-muted leading-relaxed">
-                  Thank you for reaching out. A member of our team will contact you shortly to confirm your exact appointment time.
+                  {bookPage.confirmationMessage}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -131,13 +141,9 @@ export default function BookNowPage() {
                     name="treatment"
                     className="w-full bg-offwhite border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-charcoal transition-all appearance-none"
                   >
-                    <option value="">General Checkup</option>
-                    <option value="cleaning">Teeth Cleaning</option>
-                    <option value="pain">Toothache / Root Canal</option>
-                    <option value="braces">Braces / Aligners</option>
-                    <option value="implants">Implants / Missing Tooth</option>
-                    <option value="kids">Kids Dentistry</option>
-                    <option value="other">Other</option>
+                    {bookPage.treatmentOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -159,9 +165,9 @@ export default function BookNowPage() {
                       name="time"
                       className="w-full bg-offwhite border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-charcoal transition-all appearance-none"
                     >
-                      <option value="morning">Morning (9 AM - 12 PM)</option>
-                      <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                      <option value="evening">Evening (4 PM - 8 PM)</option>
+                      {bookPage.timeSlots.map((slot) => (
+                        <option key={slot.value} value={slot.value}>{slot.label}</option>
+                      ))}
                     </select>
                   </div>
                 </div>

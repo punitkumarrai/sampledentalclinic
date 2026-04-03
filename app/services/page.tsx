@@ -1,74 +1,25 @@
 import AppointmentCTA from "@/components/AppointmentCTA";
 import Link from "next/link";
 import { CheckCircle2, HeartPulse, User } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
-  title: "Services | Sample Dental Clinic",
-  description: "Comprehensive dental care in Greater Noida: Teeth Cleaning, Root Canals, Aligners, Implants, and Kids Dentistry.",
+  title: siteConfig.metadata.services.title,
+  description: siteConfig.metadata.services.description,
 };
 
-const fullServices = [
-  {
-    title: "Teeth Cleaning & Scaling",
-    summary: "A foundational step for long-term oral health.",
-    helpsWith: "Plaque buildup, bad breath, mild gum disease.",
-    whoItIsFor: "Everyone. We recommend a checkup every 6 months.",
-    whyItMatters: "Professional cleaning removes tartar that regular brushing cannot handle, preventing cavities and gingivitis before they start.",
-  },
-  {
-    title: "Root Canal Treatment",
-    summary: "Comfortable, precise treatment to save infected teeth.",
-    helpsWith: "Severe tooth pain, deep decay, infected pulp.",
-    whoItIsFor: "Patients experiencing intense toothache or prolonged sensitivity to hot and cold.",
-    whyItMatters: "A root canal relieves pain immediately and saves the natural structure of your tooth, avoiding the need for an extraction and implant.",
-  },
-  {
-    title: "Braces & Orthodontics",
-    summary: "Traditional and ceramic options for a perfectly aligned smile.",
-    helpsWith: "Crooked teeth, bite issues, gaps.",
-    whoItIsFor: "Children, teens, and adults looking to improve their bite and smile aesthetics.",
-    whyItMatters: "Straight teeth aren't just about looks — they are easier to clean and reduce the risk of jaw strain and abnormal tooth wear.",
-  },
-  {
-    title: "Dental Implants",
-    summary: "The closest thing to a natural tooth replacement.",
-    helpsWith: "Missing teeth, difficulty chewing, bone loss prevention.",
-    whoItIsFor: "Adults who have lost one or more teeth and want a permanent, stable solution.",
-    whyItMatters: "Implants stimulate the jawbone just like natural roots, preventing bone loss and facial sagging while restoring full chewing function.",
-  },
-  {
-    title: "Invisible Aligners",
-    summary: "Discreet, removable trays to straighten teeth without wires.",
-    helpsWith: "Mild to moderate crowding or spacing issues.",
-    whoItIsFor: "Adults and responsible teens who want orthodontic treatment without the look of traditional metal braces.",
-    whyItMatters: "Aligners are virtually invisible, easy to clean, and allow you to eat whatever you want without restrictions.",
-  },
-  {
-    title: "Gum Care & Periodontics",
-    summary: "Targeted treatments for the foundation of your smile.",
-    helpsWith: "Bleeding gums, receding gum lines, advanced periodontitis.",
-    whoItIsFor: "Patients noticing blood while brushing, loose teeth, or chronic bad breath.",
-    whyItMatters: "Healthy gums are essentially the soil for your teeth. Untreated gum disease is the leading cause of tooth loss in adults.",
-  },
-  {
-    title: "Kids Dentistry",
-    summary: "Gentle, fear-free dental care tailored specifically for children.",
-    helpsWith: "Early cavity prevention, habit breaking, fluoride treatments.",
-    whoItIsFor: "Infants (after first tooth), toddlers, and young teens.",
-    whyItMatters: "Positive early experiences at the dentist set the stage for a lifetime of healthy dental habits without anxiety or fear.",
-  },
-];
-
 export default function ServicesPage() {
+  const { fullServices, servicesPage, business } = siteConfig;
+
   return (
     <>
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 bg-offwhite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-up">
           <h1 className="text-4xl sm:text-5xl font-bold text-navy mb-4">
-            Comprehensive Dental Care
+            {servicesPage.heroHeading}
           </h1>
           <p className="text-lg text-muted leading-relaxed">
-            From routine checkups to complete smile restorations, we offer everything your family needs under one thoroughly sterilized roof.
+            {servicesPage.heroDescription}
           </p>
         </div>
       </section>
@@ -98,7 +49,7 @@ export default function ServicesPage() {
                       Book Appointment
                     </Link>
                     <a
-                      href="tel:+918851169748"
+                      href={`tel:${business.phone}`}
                       className="bg-white text-navy text-center border-2 border-border font-semibold px-6 py-3.5 rounded-lg hover:border-navy hover:text-navy-light transition-colors text-sm"
                     >
                       Call Now

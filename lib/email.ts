@@ -1,8 +1,15 @@
 import { Resend } from 'resend';
+import { siteConfig } from '@/lib/site-config';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const CLINIC_EMAIL = 'thenewstar0808@gmail.com';
+// Lazy-init: Resend throws if instantiated without a key,
+// which breaks builds when env vars aren't set.
+let _resend: Resend | null = null;
+function getResend() {
+  if (!_resend) {
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend;
+}
 
 interface AppointmentDetails {
   fullName: string;
@@ -23,11 +30,13 @@ export async function sendAppointmentNotification(details: AppointmentDetails) {
     createdAt,
   } = details;
 
+  const { clinicName, senderName, recipientEmail } = siteConfig.email;
+
   const htmlBody = `
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
       <div style="background: #0f2b46; padding: 28px 32px;">
         <h1 style="color: #ffffff; font-size: 20px; margin: 0;">🦷 New Appointment Request</h1>
-        <p style="color: #94a3b8; font-size: 13px; margin: 6px 0 0;">Sample Dental Clinic — Website Booking</p>
+        <p style="color: #94a3b8; font-size: 13px; margin: 6px 0 0;">${clinicName} — Website Booking</p>
       </div>
       <div style="padding: 28px 32px;">
         <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #334155;">
@@ -70,9 +79,9 @@ export async function sendAppointmentNotification(details: AppointmentDetails) {
     </div>
   `;
 
-  const { data, error } = await resend.emails.send({
-    from: 'Sample Dental Clinic <onboarding@resend.dev>',
-    to: [CLINIC_EMAIL],
+  const { data, error } = await getResend().emails.send({
+    from: `${senderName} <onboarding@resend.dev>`,
+    to: [recipientEmail],
     subject: `New Appointment Request — ${fullName}`,
     html: htmlBody,
   });

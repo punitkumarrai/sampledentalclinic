@@ -1,9 +1,4 @@
-const images = [
-  { src: "/images/reception.jpg", alt: "Modern, welcoming reception area at Sample Dental Clinic" },
-  { src: "/images/treatment.jpg", alt: "Clean, state-of-the-art dental treatment room" },
-  { src: "/images/tools.jpg", alt: "Sterilized, modern dental equipment ready for use" },
-  { src: "/images/consultation-room.jpg", alt: "Comfortable consultation room for discussion" },
-];
+import { siteConfig } from "@/lib/site-config";
 
 export default function Gallery() {
   return (
@@ -22,7 +17,7 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.map((img, idx) => (
+          {siteConfig.gallery.map((img, idx) => (
             <div
               key={idx}
               className={`relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow aspect-square ${
