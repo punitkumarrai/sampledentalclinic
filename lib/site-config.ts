@@ -15,8 +15,7 @@ const presets: Record<string, SiteConfig> = {
  * Active preset ID.
  * Set via NEXT_PUBLIC_PRESET env var, defaults to "dental-clinic-template".
  */
-const activePresetId =
-  process.env.NEXT_PUBLIC_PRESET || "city-light";
+const activePresetId = "city-light";
 
 /**
  * The resolved site configuration for the active preset.
