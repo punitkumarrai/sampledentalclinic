@@ -6,19 +6,19 @@ const cityLight: SiteConfig = {
   // ── Business Info ────────────────────────────────────────────────
   business: {
     name: "City Light Dental Care",
-    phone: "+918851169748",
-    phoneDisplay: "+91 88511 69748",
+    phone: "+919999044511",
+    phoneDisplay: "09999044511",
     email: "hello@citylightdental.com",
-    whatsappNumber: "918851169748",
+    whatsappNumber: "919999044511",
     whatsappMessage: "Hi, I'd like to book an appointment",
     address: {
-      line1: "Alpha 2 Main Market,",
-      line2: "Greater Noida, UP 201310",
+      line1: "Shop No UG-21, Block-E, Alpha Plaza,",
+      line2: "Near Community Centre, Alpha 1, Greater Noida",
     },
     googleMapsUrl:
-      "https://maps.google.com/?q=Alpha+2+Main+Market+Greater+Noida",
+      "https://maps.google.com/?q=28.4744341,77.5123966",
     mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.034789851614!2d77.514330!3d28.473523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea65b4c19f55%3A0xc07ce6ad0b1f201d!2sAlpha%20II%20Commercial%20Belt%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+      "https://www.google.com/maps?q=28.4744341,77.5123966&output=embed",
     hours: {
       weekdays: "Mon – Sat",
       weekdayTime: "9:00 AM – 8:00 PM",
@@ -32,10 +32,10 @@ const cityLight: SiteConfig = {
     home: {
       title: "City Light Dental Care — Premium Dental Care in Greater Noida",
       description:
-        "Trusted dental clinic near Alpha 2 Main Market, Greater Noida. Gentle, modern care for the whole family — teeth cleaning, braces, implants, root canal & more. Book your appointment today.",
+        "Trusted dental clinic near Alpha Plaza, Alpha 1, Greater Noida. Gentle, modern care for the whole family — teeth cleaning, braces, implants, root canal & more. Book your appointment today.",
       keywords: [
         "dentist greater noida",
-        "dental clinic alpha 2",
+        "dental clinic alpha 1",
         "teeth cleaning",
         "braces orthodontics",
         "dental implants greater noida",
@@ -56,7 +56,7 @@ const cityLight: SiteConfig = {
     contact: {
       title: "Contact Us | City Light Dental Care",
       description:
-        "Get in touch with City Light Dental Care in Alpha 2 Main Market, Greater Noida. Call +91 88511 69748 or message us on WhatsApp.",
+        "Get in touch with City Light Dental Care in Alpha Plaza, Alpha 1, Greater Noida. Call 09999044511 or message us on WhatsApp.",
     },
   },
 
@@ -72,23 +72,23 @@ const cityLight: SiteConfig = {
     heroImageAlt:
       "Friendly dentist consulting with a patient in a modern, clean clinic setting",
     trustBadge: {
-      rating: "4.9 Rating",
-      subtitle: "200+ Happy Families",
+      rating: "4.7 Rating",
+      subtitle: "52 Reviews",
     },
   },
 
   // ── Doctor ────────────────────────────────────────────────────────
   doctor: {
-    sectionTagline: "Meet Your Dentist",
+    sectionTagline: "Meet Your Dentists",
     sectionHeading: "In Safe, Caring Hands",
-    name: "Dr. Arjun Mehta",
-    degree: "BDS, MDS — Prosthodontics",
-    experience: "12+ Years of Experience",
-    bio: "Dr. Mehta believes that every patient deserves a dental experience that’s comfortable, clear, and respectful. His approach combines technical expertise with a warm, patient-first philosophy — making even the most anxious visitors feel at ease.",
+    name: "Dr. Richa & Dr. Sachin Bansal",
+    degree: "Experienced Dental Surgeons",
+    experience: "Years of Expert Care",
+    bio: "Dr. Richa and Dr. Sachin Bansal believe that every patient deserves a dental experience that’s comfortable, clear, and respectful. Their approach combines technical expertise with a warm, patient-first philosophy — making even the most anxious visitors feel at ease.",
     quote:
-      "“Good dental care starts with honest conversation. I want every patient to understand their options and feel confident about their treatment.”",
+      "“Good dental care starts with honest conversation. We want every patient to understand their options and feel confident about their treatment.”",
     imagePath: "/images/doctor.jpg",
-    imageAlt: "Dr. Arjun Mehta — Lead Dentist at City Light Dental Care",
+    imageAlt: "Dr. Richa & Dr. Sachin Bansal — Lead Dentists at City Light Dental Care",
   },
 
   // ── Services Preview (homepage cards) ─────────────────────────────
@@ -278,7 +278,7 @@ const cityLight: SiteConfig = {
       "At City Light Dental Care, we believe dentistry shouldn’t feel intimidating. We’ve built a practice rooted in transparency, advanced hygiene protocols, and a genuine commitment to your comfort.",
     storyHeading: "Rooted in Greater Noida.\nDriven by Excellence.",
     storyParagraphs: [
-      "When we first opened our doors at Alpha 2 Main Market, we had one simple goal: to change how people genuinely feel about going to the dentist. We knew that fear of pain and lack of transparency were keeping families away from the care they deserved.",
+      "When we first opened our doors at Alpha Plaza, Alpha 1, we had one simple goal: to change how people genuinely feel about going to the dentist. We knew that fear of pain and lack of transparency were keeping families away from the care they deserved.",
       "Today, we are incredibly proud to be the trusted dental home for hundreds of local families. From toddlers having their first tooth looked at, to grandparents receiving full mouth restorations, our team is equipped to handle every generation under one roof.",
       "We invest heavily in the latest dental technology—not just because it’s modern, but because it makes treatments faster, safer, and entirely painless for you.",
     ],
@@ -461,7 +461,7 @@ const cityLight: SiteConfig = {
     heading: "Take the First Step Toward a Healthier Smile",
     description:
       "Whether you need a routine cleaning or specialized emergency care, our dedicated team is here to ensure your visit is surprisingly comfortable.",
-    phoneDisplayText: "Call 88511 69748",
+    phoneDisplayText: "Call 09999044511",
     badges: [
       "Gladly Accepting New Families",
       "Walk-ins & Emergencies Welcome",
