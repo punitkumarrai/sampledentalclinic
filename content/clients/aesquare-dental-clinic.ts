@@ -372,20 +372,20 @@ const aesquareDentalClinic: SiteConfig = {
   // ── Gallery ───────────────────────────────────────────────────────
   gallery: [
     {
-      src: "/images/reception.jpg",
-      alt: "Modern, welcoming reception area at Aesquare Dental Clinic",
+      src: "/images/aesquare/gallery-1.jpg",
+      alt: "Dental chair and advanced clinic equipment",
     },
     {
-      src: "/images/treatment.jpg",
-      alt: "Clean, state-of-the-art dental treatment room",
+      src: "/images/aesquare/gallery-2.jpg",
+      alt: "Aesquare Dental Clinic reception area",
     },
     {
-      src: "/images/tools.jpg",
-      alt: "Sterilized, modern dental equipment ready for use",
+      src: "/images/aesquare/gallery-3.jpg",
+      alt: "Doctor performing PRP treatment",
     },
     {
-      src: "/images/consultation-room.jpg",
-      alt: "Comfortable consultation room for discussion",
+      src: "/images/aesquare/gallery-4.jpg",
+      alt: "Doctor performing dental procedure on patient",
     },
   ],
 
