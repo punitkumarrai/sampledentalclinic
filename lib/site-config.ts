@@ -1,5 +1,5 @@
 import type { SiteConfig } from "@/content/types";
-import { sampleDental, dentalClinicTemplate } from "@/content/clients";
+import { sampleDental, dentalClinicTemplate, aesquareDentalClinic } from "@/content/clients";
 
 /**
  * Registry of all available client presets.
@@ -8,6 +8,7 @@ import { sampleDental, dentalClinicTemplate } from "@/content/clients";
 const presets: Record<string, SiteConfig> = {
   "sample-dental": sampleDental,
   "dental-clinic-template": dentalClinicTemplate,
+  "aesquare-dental-clinic": aesquareDentalClinic,
 };
 
 /**
@@ -15,13 +16,13 @@ const presets: Record<string, SiteConfig> = {
  * Set via NEXT_PUBLIC_PRESET env var, defaults to "dental-clinic-template".
  */
 const activePresetId =
-  process.env.NEXT_PUBLIC_PRESET || "dental-clinic-template";
+  process.env.NEXT_PUBLIC_PRESET || "aesquare-dental-clinic";
 
 /**
  * The resolved site configuration for the active preset.
  */
 export const siteConfig: SiteConfig =
-  presets[activePresetId] ?? dentalClinicTemplate;
+  presets[activePresetId] ?? aesquareDentalClinic;
 
 /**
  * Convenience getter (same as siteConfig).
