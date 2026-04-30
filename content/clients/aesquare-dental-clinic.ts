@@ -372,19 +372,19 @@ const aesquareDentalClinic: SiteConfig = {
   // ── Gallery ───────────────────────────────────────────────────────
   gallery: [
     {
-      src: "/images/aesquare/gallery-1.jpg",
+      src: "/images/aesquare/advanced-dental-chair-equipment.jpg",
       alt: "Dental chair and advanced clinic equipment",
     },
     {
-      src: "/images/aesquare/gallery-2.jpg",
+      src: "/images/aesquare/aesquare-dental-clinic-reception.jpg",
       alt: "Aesquare Dental Clinic reception area",
     },
     {
-      src: "/images/aesquare/gallery-3.jpg",
+      src: "/images/aesquare/prp-hair-treatment-greater-noida.jpg",
       alt: "Doctor performing PRP treatment",
     },
     {
-      src: "/images/aesquare/gallery-4.jpg",
+      src: "/images/aesquare/dental-procedure-patient-care.jpg",
       alt: "Doctor performing dental procedure on patient",
     },
   ],
