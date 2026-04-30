@@ -68,9 +68,9 @@ const aesquareDentalClinic: SiteConfig = {
     headingSuffix: " Care",
     description:
       "At Aesquare Dental Clinic, we combine modern technology with a warm, family-friendly approach. From routine cleanings to advanced treatments — your comfort always comes first.",
-    heroImage: "/images/hero-dentist.jpg",
+    heroImage: "/images/aesquare/advanced-dental-chair-equipment.jpg",
     heroImageAlt:
-      "Friendly dentist consulting with a patient in a modern, clean clinic setting",
+      "Advanced dental chair and equipment at Aesquare Dental Clinic",
     trustBadge: {
       rating: "4.9 Rating",
       subtitle: "90+ Happy Families",
