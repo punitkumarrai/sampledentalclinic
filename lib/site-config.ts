@@ -1,5 +1,5 @@
 import type { SiteConfig } from "@/content/types";
-import { sampleDental, dentalClinicTemplate, cityLight } from "@/content/clients";
+import { sampleDental, dentalClinicTemplate } from "@/content/clients";
 
 /**
  * Registry of all available client presets.
@@ -8,14 +8,13 @@ import { sampleDental, dentalClinicTemplate, cityLight } from "@/content/clients
 const presets: Record<string, SiteConfig> = {
   "sample-dental": sampleDental,
   "dental-clinic-template": dentalClinicTemplate,
-  "city-light": cityLight,
 };
 
 /**
  * Active preset ID.
  * Set via NEXT_PUBLIC_PRESET env var, defaults to "dental-clinic-template".
  */
-const activePresetId = "city-light";
+const activePresetId = "dental-clinic-template";
 
 /**
  * The resolved site configuration for the active preset.

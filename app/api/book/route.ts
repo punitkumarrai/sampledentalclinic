@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     }
 
     // Insert into Supabase
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('appointment_requests')
       .insert([
         {

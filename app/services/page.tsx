@@ -27,7 +27,7 @@ export default function ServicesPage() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16 md:space-y-24">
-            {fullServices.map((service, idx) => (
+            {fullServices.map((service) => (
               <div
                 key={service.title}
                 className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start border-b border-border/40 pb-16 md:pb-24 last:border-0 last:pb-0 group"

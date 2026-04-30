@@ -39,9 +39,9 @@ export default function BookNowPage() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setErrorMsg(err.message || "Something went wrong.");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
       setLoading(false);
     }
