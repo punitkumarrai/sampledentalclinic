@@ -1,18 +1,57 @@
+"use client";
+
 import AppointmentCTA from "@/components/AppointmentCTA";
 import Link from "next/link";
-import { CheckCircle2, HeartPulse, User } from "lucide-react";
+import { CheckCircle2, HeartPulse, User, ChevronDown, ChevronUp } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import {
+  Sparkles,
+  Activity,
+  Smile,
+  Settings,
+  Gem,
+  Baby,
+  ClipboardList,
+  Star,
+} from "lucide-react";
+import type { ReactElement } from "react";
+import { useState } from "react";
 
-export const metadata = {
-  title: siteConfig.metadata.services.title,
-  description: siteConfig.metadata.services.description,
+// Icon map matching servicesPreview iconNames
+const iconMap: Record<string, ReactElement> = {
+  Sparkles: <Sparkles className="w-10 h-10" strokeWidth={1.5} />,
+  Activity: <Activity className="w-10 h-10" strokeWidth={1.5} />,
+  Smile: <Smile className="w-10 h-10" strokeWidth={1.5} />,
+  Settings: <Settings className="w-10 h-10" strokeWidth={1.5} />,
+  Gem: <Gem className="w-10 h-10" strokeWidth={1.5} />,
+  HeartPulse: <HeartPulse className="w-10 h-10" strokeWidth={1.5} />,
+  Baby: <Baby className="w-10 h-10" strokeWidth={1.5} />,
+  ClipboardList: <ClipboardList className="w-10 h-10" strokeWidth={1.5} />,
+  Star: <Star className="w-10 h-10" strokeWidth={1.5} />,
 };
 
+// Background images per card — uses existing public images
+const bgImages = [
+  "/images/treatment.jpg",
+  "/images/consultation.jpg",
+  "/images/reception.jpg",
+  "/images/consultation-room.jpg",
+  "/images/treatment.jpg",
+  "/images/reception.jpg",
+  "/images/consultation.jpg",
+];
+
 export default function ServicesPage() {
-  const { fullServices, servicesPage, business } = siteConfig;
+  const { fullServices, servicesPage, servicesPreview } = siteConfig;
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+
+  const toggle = (idx: number) => {
+    setExpandedIdx((prev) => (prev === idx ? null : idx));
+  };
 
   return (
     <>
+      {/* ── Page Hero ───────────────────────────────────────── */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 bg-offwhite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-up">
           <h1 className="text-4xl sm:text-5xl font-bold text-navy mb-4">
@@ -24,76 +63,145 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ── Services Card Grid ──────────────────────────────── */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16 md:space-y-24">
-            {fullServices.map((service, idx) => (
-              <div
-                key={service.title}
-                className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start border-b border-border/40 pb-16 md:pb-24 last:border-0 last:pb-0 group"
-              >
-                {/* Left side: Hero of the service */}
-                <div className="lg:col-span-5">
-                  <h2 className="text-3xl font-bold text-navy mb-4 group-hover:text-teal transition-colors">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-teal font-semibold mb-8 leading-relaxed">
-                    {service.summary}
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/book"
-                      className="bg-teal text-white text-center font-semibold px-6 py-3.5 rounded-lg hover:bg-teal-light transition-all shadow-md hover:shadow-lg text-sm"
-                    >
-                      Book Appointment
-                    </Link>
-                    <a
-                      href={`tel:${business.phone}`}
-                      className="bg-white text-navy text-center border-2 border-border font-semibold px-6 py-3.5 rounded-lg hover:border-navy hover:text-navy-light transition-colors text-sm"
-                    >
-                      Call Now
-                    </a>
-                  </div>
-                </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {fullServices.map((service, idx) => {
+              const preview = servicesPreview[idx];
+              const icon = preview
+                ? (iconMap[preview.iconName] ?? <Sparkles className="w-10 h-10" strokeWidth={1.5} />)
+                : <Sparkles className="w-10 h-10" strokeWidth={1.5} />;
+              const bgImage = bgImages[idx % bgImages.length];
+              const isOpen = expandedIdx === idx;
 
-                {/* Right side: Detailed breakdown container */}
-                <div className="lg:col-span-7 bg-offwhite/50 rounded-2xl p-6 sm:p-8 border border-border/40 shadow-sm transition-all group-hover:shadow-md group-hover:border-border/80">
-                  <div className="grid sm:grid-cols-2 gap-8">
-                    {/* Why It Matters (Spans both columns) */}
-                    <div className="sm:col-span-2">
-                      <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-3">
-                        <CheckCircle2 className="w-4 h-4 text-teal" strokeWidth={2.5} />
-                        Why It Matters
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
-                        {service.whyItMatters}
+              return (
+                <div key={service.title} className="flex flex-col">
+                  {/* ── Card ── */}
+                  <div
+                    className="service-card group relative overflow-hidden rounded-2xl border border-border/50 bg-white flex flex-col"
+                    style={{ minHeight: "340px" }}
+                  >
+                    {/* Background image — revealed on hover */}
+                    <div
+                      className="service-card-bg absolute inset-0 bg-cover bg-center transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                      style={{ backgroundImage: `url('${bgImage}')` }}
+                      aria-hidden="true"
+                    />
+                    {/* Dark overlay — revealed on hover */}
+                    <div className="absolute inset-0 bg-navy/80 transition-opacity duration-500 opacity-0 group-hover:opacity-100" aria-hidden="true" />
+
+                    {/* Card Content */}
+                    <div className="relative z-10 flex flex-col h-full p-6 sm:p-7">
+                      {/* Icon */}
+                      <div className="mb-5">
+                        <div
+                          className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-offwhite text-teal transition-all duration-400 group-hover:bg-teal group-hover:text-white"
+                        >
+                          {icon}
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h2 className="text-xl font-bold text-navy mb-3 transition-colors duration-400 group-hover:text-white">
+                        {service.title}
+                      </h2>
+
+                      {/* Summary */}
+                      <p className="text-sm text-muted leading-relaxed mb-6 flex-1 transition-colors duration-400 group-hover:text-white/80">
+                        {service.summary}
                       </p>
+
+                      {/* Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                        {/* Read More — toggles detail panel */}
+                        <button
+                          onClick={() => toggle(idx)}
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 border-2 border-border text-navy font-semibold text-sm px-4 py-2.5 rounded-lg
+                                     transition-all duration-300 group-hover:border-white group-hover:text-white
+                                     hover:bg-white/10"
+                          aria-expanded={isOpen}
+                        >
+                          {isOpen ? (
+                            <>
+                              Less Info <ChevronUp className="w-4 h-4" />
+                            </>
+                          ) : (
+                            <>
+                              Read More <ChevronDown className="w-4 h-4" />
+                            </>
+                          )}
+                        </button>
+
+                        {/* Book Now */}
+                        <Link
+                          href="/book"
+                          className="flex-1 inline-flex items-center justify-center bg-teal text-white font-semibold text-sm px-4 py-2.5 rounded-lg
+                                     transition-all duration-300 hover:bg-teal-light shadow-sm hover:shadow-md
+                                     group-hover:bg-teal group-hover:text-white"
+                        >
+                          Book Now
+                        </Link>
+                      </div>
                     </div>
-                    {/* Helps With */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-3">
-                        <HeartPulse className="w-4 h-4 text-teal" strokeWidth={2.5} />
-                        Helps With
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
-                        {service.helpsWith}
-                      </p>
-                    </div>
-                    {/* Who is it for */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-3">
-                        <User className="w-4 h-4 text-teal" strokeWidth={2.5} />
-                        Who Is It For?
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
-                        {service.whoItIsFor}
-                      </p>
+                  </div>
+
+                  {/* ── Expandable Detail Panel ── */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      isOpen ? "max-h-[600px] opacity-100 mt-3" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="bg-offwhite/70 border border-border/50 rounded-2xl p-6 space-y-5">
+                      {/* Why It Matters */}
+                      <div>
+                        <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-2">
+                          <CheckCircle2 className="w-4 h-4 text-teal" strokeWidth={2.5} />
+                          Why It Matters
+                        </h3>
+                        <p className="text-sm text-muted leading-relaxed">
+                          {service.whyItMatters}
+                        </p>
+                      </div>
+
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        {/* Helps With */}
+                        <div>
+                          <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-2">
+                            <HeartPulse className="w-4 h-4 text-teal" strokeWidth={2.5} />
+                            Helps With
+                          </h3>
+                          <p className="text-sm text-muted leading-relaxed">
+                            {service.helpsWith}
+                          </p>
+                        </div>
+
+                        {/* Who Is It For */}
+                        <div>
+                          <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy mb-2">
+                            <User className="w-4 h-4 text-teal" strokeWidth={2.5} />
+                            Who Is It For?
+                          </h3>
+                          <p className="text-sm text-muted leading-relaxed">
+                            {service.whoItIsFor}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* CTA inside panel */}
+                      <div className="pt-2">
+                        <Link
+                          href="/book"
+                          className="inline-flex items-center bg-teal text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-teal-light transition-all shadow-sm hover:shadow-md"
+                        >
+                          Book This Treatment
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
