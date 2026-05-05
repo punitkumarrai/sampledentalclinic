@@ -1,5 +1,5 @@
 import type { SiteConfig } from "@/content/types";
-import { sampleDental, dentalClinicTemplate, } from "@/content/clients";
+import { sampleDental, dentalClinicTemplate, shlokaDental } from "@/content/clients";
 
 /**
  * Registry of all available client presets.
@@ -8,6 +8,7 @@ import { sampleDental, dentalClinicTemplate, } from "@/content/clients";
 const presets: Record<string, SiteConfig> = {
   "sample-dental": sampleDental,
   "dental-clinic-template": dentalClinicTemplate,
+  "shloka-dental": shlokaDental,
 };
 
 /**
@@ -15,7 +16,7 @@ const presets: Record<string, SiteConfig> = {
  * Set via NEXT_PUBLIC_PRESET env var, defaults to "dental-clinic-template".
  */
 const activePresetId =
-  process.env.NEXT_PUBLIC_PRESET || "sample-dental";
+  process.env.NEXT_PUBLIC_PRESET || "shloka-dental";
 
 /**
  * The resolved site configuration for the active preset.
