@@ -29,10 +29,10 @@ const iconMap: Record<string, ReactElement> = {
 };
 
 const bgImages = [
-  "/images/treatment.jpg",
-  "/images/consultation.jpg",
-  "/images/reception.jpg",
-  "/images/consultation-room.jpg",
+  "/images/service_implants.png",
+  "/images/service_root_canal.png",
+  "/images/service_cleaning.png",
+  "/images/service_cosmetic.png",
   "/images/tools.jpg",
   "/images/treatment.jpg",
   "/images/consultation.jpg",
