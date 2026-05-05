@@ -61,7 +61,7 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
-/* Service card — DrVP-style dark image reveal on hover */
+/* Service card — dark image reveal on hover */
 .service-card {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
