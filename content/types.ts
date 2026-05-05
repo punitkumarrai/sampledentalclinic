@@ -20,6 +20,12 @@ export interface BusinessInfo {
   googleMapsUrl: string;
   mapEmbedUrl: string;
   hours: BusinessHours;
+  /** Optional social links — if omitted, TopBar social section is hidden */
+  social?: {
+    facebook?: string;   // full URL e.g. "https://facebook.com/yourclinic"
+    instagram?: string;  // full URL e.g. "https://instagram.com/yourclinic"
+    whatsapp?: string;   // full URL e.g. "https://wa.me/918851169748"
+  };
 }
 
 // ─── Metadata ───────────────────────────────────────────────────────

@@ -25,6 +25,11 @@ const sampleDental: SiteConfig = {
       weekend: "Sunday",
       weekendTime: "10:00 AM – 2:00 PM",
     },
+    social: {
+      facebook: "https://facebook.com/sampledentalclinic",
+      instagram: "https://instagram.com/sampledentalclinic",
+      whatsapp: "https://wa.me/918851169748",
+    },
   },
 
   // ── Metadata ─────────────────────────────────────────────────────
