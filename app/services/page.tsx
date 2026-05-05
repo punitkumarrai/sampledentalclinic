@@ -30,15 +30,15 @@ const iconMap: Record<string, ReactElement> = {
   Star: <Star className="w-10 h-10" strokeWidth={1.5} />,
 };
 
-// Background images per card — uses existing public images
+// Background images per card — uses generated and existing images
 const bgImages = [
+  "/images/service_implants.png",
+  "/images/service_root_canal.png",
+  "/images/service_cleaning.png",
+  "/images/service_cosmetic.png",
   "/images/treatment.jpg",
   "/images/consultation.jpg",
-  "/images/reception.jpg",
-  "/images/consultation-room.jpg",
-  "/images/treatment.jpg",
-  "/images/reception.jpg",
-  "/images/consultation.jpg",
+  "/images/tools.jpg",
 ];
 
 export default function ServicesPage() {
