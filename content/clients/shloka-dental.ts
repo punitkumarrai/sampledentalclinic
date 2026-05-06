@@ -88,7 +88,7 @@ const shlokaDental: SiteConfig = {
     bio: "Dr. Ayushi Srivastava is known for her calm, patient, and thorough approach to dental care. She takes time to explain every procedure clearly and ensures each patient feels completely at ease. Her expertise in dental implants and pain-free treatments has earned her a loyal patient base across Greater Noida.",
     quote:
       "\u201cEvery smile tells a story. I want to make sure yours is a healthy, happy, and confident one.\u201d",
-    imagePath: "/images/doctor.jpg",
+    imagePath: "/images/lady_doctor.jpg",
     imageAlt: "Dr. Ayushi Srivastava — Lead Dentist at Shloka Dental and Implant Centre",
   },
 
