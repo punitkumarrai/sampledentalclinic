@@ -92,7 +92,7 @@ const dantArt: SiteConfig = {
     bio: "Dr. Vijeta Singh is a dedicated dental surgeon known for her precise clinical skills and patient-centric approach. She specializes in providing painless dental treatments and aesthetic smile enhancements, ensuring every patient leaves with confidence.",
     quote:
       "“We believe every smile is unique and deserves the highest standard of artistic and clinical care.”",
-    imagePath: "/images/doctor.jpg", 
+    imagePath: "/images/lady_doctor.jpg", 
     imageAlt: "Dr. Vijeta Singh — Lead Dentist at DantArt Dental Clinic",
   },
 
