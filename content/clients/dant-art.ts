@@ -245,7 +245,8 @@ const dantArt: SiteConfig = {
       "Over the years, we have become a preferred choice for families in Greater Noida. Whether it is a child's first checkup or a complex surgical procedure, our commitment to hygiene and excellence remains unwavering.",
       "We continually invest in the latest equipment, like dental lasers and digital imaging, to ensure that our patients receive the most accurate diagnoses and efficient treatments possible.",
     ],
-    storyImage: "/images/reception.jpg",
+    storyImage: "/images/dantart/clinic_interior.png",
+
     storyImageAlt: "Modern reception and patient lounge at DantArt Dental Clinic",
     philosophyHeading: "Our Core Philosophy",
     philosophyDescription:
@@ -334,16 +335,20 @@ const dantArt: SiteConfig = {
   // ── Gallery ───────────────────────────────────────────────────────
   gallery: [
     {
-      src: "/images/reception.jpg",
-      alt: "Welcoming reception at DantArt Dental Clinic",
+      src: "/images/dantart/clinic_interior.png",
+      alt: "Dr. Vijeta Singh's Consultation Room at DantArt Dental Clinic",
     },
     {
-      src: "/images/treatment.jpg",
-      alt: "Modern laser dental treatment setup",
+      src: "/images/dantart/clinic_treatment.png",
+      alt: "Advanced dental treatment in progress at DantArt Clinic",
     },
     {
-      src: "/images/tools.jpg",
-      alt: "Sterilized equipment at DantArt Clinic",
+      src: "/images/dantart/clinic_event_1.png",
+      alt: "Community dental awareness event by DantArt Dental Clinic",
+    },
+    {
+      src: "/images/dantart/clinic_event_2.png",
+      alt: "Patient engagement and oral health session",
     },
   ],
 
@@ -372,7 +377,8 @@ const dantArt: SiteConfig = {
   whyChooseUs: {
     sectionTagline: "The DantArt Advantage",
     sectionHeading: "Why Patients Trust Our Care",
-    image: "/images/consultation.jpg",
+    image: "/images/dantart/clinic_treatment.png",
+
     imageAlt: "Dr. Vijeta Singh consulting with a patient",
     reasons: [
       {
